@@ -1,5 +1,4 @@
-const obj = {first:1, second:2}
-
+// Iterator function
 const objIterator = function() {
   return {
     entries: Object.entries(this),
@@ -18,11 +17,38 @@ const objIterator = function() {
   }
 }
 
-const iterableObj = {
+// Extended
+const obj = {first:1, second:2}
+
+const iterableObjectExtended = {
   ...obj,
   [Symbol.iterator]: objIterator
 }
 
-for (const key of iterableObj) {
+// for (const key of iterableObjectExtended) {
+//   console.log(key);
+// }
+
+// Class
+class IterableObject {
+  constructor(obj) {
+    this[Symbol.iterator] = objIterator
+  }
+}
+
+const objFromClass = new IterableObject()
+
+for (const key of objFromClass) {
   console.log(key);
 }
+
+// Wrapper function
+const addIterator = (obj) => {
+  obj[Symbol.iterator] = objIterator
+  return obj
+}
+
+for (const key of addIterator({a:"a",b:'b'})) {
+  console.log(key);
+}
+
