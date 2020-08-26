@@ -55,10 +55,13 @@ for (const key of addIterator({a:"a",b:'b'})) {
 
 const arr = [1,2]
 console.log(arr[Symbol.iterator]())
+
+var arrIterator = arr[Symbol.iterator]();
+console.log(arrIterator.next().value); // 1
+console.log(arrIterator.next().value); // 2
+
 //console.log(arr[Symbol.iterator] = null)
 for (const el of arr) {
   console.log(el)
 }
-
-
 
