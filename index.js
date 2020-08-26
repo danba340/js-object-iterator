@@ -65,3 +65,21 @@ for (const el of arr) {
   console.log(el)
 }
 
+const str = "abc"
+console.log(str[Symbol.iterator])
+for (const letter of str) {
+  console.log(letter)
+}
+
+const map = new Map([["a", 1], ['b',2]]);
+console.log(map[Symbol.iterator])
+for (const entry of map) {
+  console.log(entry)
+}
+
+const set = new Set([1,2,3])
+console.log(set[Symbol.iterator])
+for (const num of set){
+  console.log(num)
+}
+
