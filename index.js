@@ -18,10 +18,10 @@ const objIterator = function() {
 }
 
 // Extended
-const obj = {first:1, second:2}
+const obj1 = {first:1, second:2}
 
 const iterableObjectExtended = {
-  ...obj,
+  ...obj1,
   [Symbol.iterator]: objIterator
 }
 
@@ -51,4 +51,14 @@ const addIterator = (obj) => {
 for (const key of addIterator({a:"a",b:'b'})) {
   console.log(key);
 }
+
+
+const arr = [1,2]
+console.log(arr[Symbol.iterator]())
+//console.log(arr[Symbol.iterator] = null)
+for (const el of arr) {
+  console.log(el)
+}
+
+
 
